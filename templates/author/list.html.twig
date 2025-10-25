@@ -1,0 +1,39 @@
+<h2>
+	le tableau comporte
+	{{authors| length}}
+	auteurs
+</h2>
+{% if authors is empty or authors is not defined %}
+	<h2>
+		vérifer votre tableau
+	</h2>
+
+{% else %}
+	<table border="1">
+		<tr>
+			<th>Id</th>
+			<th>UserNAme</th>
+			<th>email</th>
+		
+		</tr>
+		
+		{% for elt in authors %}
+			<tr>
+				<td>{{elt.id}}</td>
+				
+				<td>{{elt.username | upper}}</td>
+				<td>{{elt.email}}</td>
+				
+                <td><a href="details/{{elt.id}}">Details</a></td>
+				<td><a href="update/{{elt.id}}">update</a></td>
+				<td><a href="delete/{{elt.id}}">delete</a></td>
+			</tr>
+
+		{% endfor %}
+		<h2>
+			le nombre totale des books est
+			
+		</h2>
+	</table>
+
+{% endif %}

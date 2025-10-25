@@ -1,0 +1,35 @@
+
+{% if books is empty or books is not defined %}
+	<h2>
+		vérifer votre tableau
+	</h2>
+
+{% else %}
+	<table border="1">
+		<tr>
+			<th>Id</th>
+			<th>tile</th>
+			<th>category</th>
+            <th>published</th>
+            <th>publication date</th>
+		
+		</tr>
+		
+		{% for elt in books %}
+			<tr>
+				<td>{{elt.id}}</td>
+				<td>{{elt.title | upper}}</td>
+				<td>{{elt.published}}</td>
+                <td>{{elt.category}}</td>
+                
+				
+                <td><a href="details/{{elt.id}}">Details</a></td>
+				<td><a href="updatebook/{{elt.id}}">update</a></td>
+				<td><a href="deletebook/{{elt.id}}">delete</a></td>
+			</tr>
+
+		{% endfor %}
+		
+	</table>
+
+{% endif %}
